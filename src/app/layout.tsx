@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Besley, Abril_Fatface } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const besley = Besley({ subsets: ["latin"], variable: "--besley" });
+const abrilFatface = Abril_Fatface({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--Abril_Fatface"
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${besley.variable} ${abrilFatface.variable}`}>
+      <body
+        className={`${abrilFatface.className} flex h-auto items-center justify-center bg-[#DADCE7]`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
