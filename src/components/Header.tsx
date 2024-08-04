@@ -24,13 +24,14 @@ const header = tv({
     color: "primary"
   }
 });
-const { title, titleLine, underline } = header();
 
 type HeaderProps = VariantProps<typeof header> & {
   headerTitle: string;
 };
 
 export const Header = ({ headerTitle = "", color }: HeaderProps) => {
+  const { title, titleLine, underline } = header();
+
   return (
     <div className="mt-8 flex h-fit flex-col gap-8">
       <div className="flex items-center justify-center gap-3">

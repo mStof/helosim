@@ -1,4 +1,4 @@
-import Header from "@/components/.assets/Header";
+import Header from "@/components/Header";
 
 const BooksContainer = () => {
   return (

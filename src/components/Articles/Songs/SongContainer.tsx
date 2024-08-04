@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { DiscContainer } from "./DiscContainer/DiscContainer";
-import { Header } from "../../.assets/Header";
+import { Header } from "../../Header";
 import { Paragraph } from "./Paragraph";
 import { Player } from "./Player";
 
@@ -10,7 +10,7 @@ const SongContainer = () => {
   const [trackOptions, setTrackOptions] = useState({ path: "", name: "" });
   return (
     <article className="mb-16 flex flex-col bg-yellow-50">
-      <Header headerTitle="Songs" />
+      <Header headerTitle="VIADO" />
       <Paragraph />
       {trackOptions.name && <Player trackOptions={trackOptions} />}
       <DiscContainer setTrackPath={setTrackOptions} />
