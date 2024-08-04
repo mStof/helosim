@@ -22,16 +22,16 @@ const WordsContainer = () => {
       ref={container}
       className="flex w-full flex-col items-center gap-6 font-serif uppercase *:relative *:flex *:items-center sm:gap-8"
     >
-      <span className="word left-full h-9 text-5xl leading-none sm:h-24 sm:text-32">
+      <span className="word sm:text-32 left-full h-9 text-5xl leading-none sm:h-24">
         Time to know
       </span>
-      <span className="word -left-full h-[1.125rem] text-2xl leading-none sm:h-12 sm:text-16">
+      <span className="word sm:text-16 -left-full h-[1.125rem] text-2xl leading-none sm:h-12">
         Everything about the
       </span>
-      <span className="word left-full h-4 text-xl leading-none sm:h-6 sm:text-8">
+      <span className="word sm:text-8 left-full h-4 text-xl leading-none sm:h-6">
         Most beutiful person
       </span>
-      <span className="word -left-full h-4 text-xl leading-none sm:h-6 sm:text-8">
+      <span className="word sm:text-8 -left-full h-4 text-xl leading-none sm:h-6">
         in this world
       </span>
       <span className="word left-full h-3 text-base leading-none sm:h-6 sm:text-2xl">
