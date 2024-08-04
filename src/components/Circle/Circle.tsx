@@ -37,7 +37,7 @@ const CircleContainer = ({
     gsap.to(container.current, { scale: 1, duration: 0.5 });
   });
   return (
-    <div className="flex h-screen min-h-svh items-center justify-center">
+    <div className="flex h-screen max-h-svh min-h-svh items-center justify-center">
       <button
         ref={container}
         onClick={handleClick}
