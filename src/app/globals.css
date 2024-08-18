@@ -7,3 +7,8 @@
       --deg: 22.5deg;
   }
 }
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}

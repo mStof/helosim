@@ -10,7 +10,7 @@ const SongContainer = () => {
   const [trackOptions, setTrackOptions] = useState({ path: "", name: "" });
   return (
     <article className="mb-16 flex flex-col bg-yellow-50">
-      <Header headerTitle="VIADO" />
+      <Header headerTitle="Songs" />
       <Paragraph />
       {trackOptions.name && <Player trackOptions={trackOptions} />}
       <DiscContainer setTrackPath={setTrackOptions} />

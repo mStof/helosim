@@ -39,12 +39,17 @@ const config: Config = {
         "4": "0.04em"
       },
       animation: {
-        "spin-slow": "spinner 30s 1000ms linear infinite alternate"
+        "spin-slow": "spinner 30s 1000ms linear infinite alternate",
+        infiniteScroll: "infiniteScroll 15s linear infinite"
       },
       keyframes: {
         spinner: {
           "0%": { transform: "rotate(calc(calc(var(--deg) * 3) * -1))" },
           "100%": { transform: "rotate(360deg)" }
+        },
+        infiniteScroll: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" }
         }
       }
     },
