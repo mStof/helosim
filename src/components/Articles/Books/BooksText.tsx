@@ -1,18 +1,41 @@
-const BooksText = ({ mensage = "Text" }: { mensage: string }) => {
+import { tv } from "tailwind-variants";
+import { mensageProps } from "./BooksContainer";
+import Image from "next/image";
+
+const booksText = tv({
+  slots: {
+    container: "mb-16 flex h-fit w-full justify-center gap-0.5 px-6",
+    book: "my-auto min-w-24 h-32 self-stretch rounded-md bg-blue-500 relative overflow-hidden shadow-lg",
+
+    mensageContainer:
+      "flex w-fit flex-col justify-between rounded-xl bg-yellow-50 gap-2 py-4 pl-4 pr-4 rounded-l-md",
+    bookMensage:
+      "font-slab text-sm italic font-bold leading-tight text-pink-600",
+    bookTitle: "font-slab text-xs font-bold text-pink-600"
+  }
+});
+
+const { book, bookMensage, bookTitle, container, mensageContainer } =
+  booksText();
+
+const BooksText = ({ mensageObj }: { mensageObj: mensageProps }) => {
   return (
-    <div className="my-16 flex h-fit w-full justify-center gap-0.5 bg-red-900 px-6">
-      <div className="h-24 w-[4.5rem] bg-blue-500"></div>
-      <div className="flex flex-col justify-between bg-yellow-50 py-4 pl-2 pr-6">
-        <em className="font-slab text-xs font-bold leading-tight text-pink-600">
-          {
-            "“Saiba que és meu amor mais que perfeito lindo maravilhoso incrivel dinivo, lindeza”"
-          }
-        </em>
-        <p className="font-slab text-[0.5rem] font-bold text-pink-600">
-          -Principe cruel
-        </p>
+    <article className={container()}>
+      <div className={book()}>
+        <Image
+          src={mensageObj.capa}
+          alt="Capa do disco"
+          placeholder="blur"
+          quality={100}
+          className="pointer-events-none isolate"
+          fill
+        />
       </div>
-    </div>
+      <article className={mensageContainer()}>
+        <em className={bookMensage()}>{`“${mensageObj.mensage}”`}</em>
+        <p className={bookTitle()}>- {mensageObj.title}</p>
+      </article>
+    </article>
   );
 };
 export default BooksText;

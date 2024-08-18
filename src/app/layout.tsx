@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Besley, Abril_Fatface } from "next/font/google";
 import "./globals.css";
 
-const besley = Besley({ subsets: ["latin"], variable: "--besley" });
+const besley = Besley({
+  subsets: ["latin"],
+  variable: "--besley",
+  style: ["normal", "italic"]
+});
 const abrilFatface = Abril_Fatface({
   subsets: ["latin"],
   weight: "400",
