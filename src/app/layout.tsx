@@ -5,11 +5,12 @@ import "./globals.css";
 const besley = Besley({
   subsets: ["latin"],
   variable: "--besley",
+  weight: ["400", "700"],
   style: ["normal", "italic"]
 });
 const abrilFatface = Abril_Fatface({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400"],
   variable: "--Abril_Fatface"
 });
 

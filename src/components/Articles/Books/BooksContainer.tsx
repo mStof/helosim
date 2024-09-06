@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/.assets/Header";
 import BooksParagraph from "./BooksParagraps";
 import BooksCarrosel from "./BooksCarrosel";
 import BooksText from "./BooksText";

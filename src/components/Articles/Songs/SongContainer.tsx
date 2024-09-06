@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { DiscContainer } from "./DiscContainer/DiscContainer";
-import { Header } from "../../Header";
+import { Header } from "../../.assets/Header";
 import { Paragraph } from "./Paragraph";
 import { Player } from "./Player";
 

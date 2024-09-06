@@ -35,6 +35,7 @@ const Disc = ({ bgCd, dataActive, handleClick, id }: DiscPrpos) => {
           quality={100}
           className="pointer-events-none isolate"
           fill
+          sizes="96px"
         />
       </button>
     </div>

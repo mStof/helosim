@@ -5,7 +5,7 @@ import Image from "next/image";
 const booksText = tv({
   slots: {
     container: "mb-16 flex h-fit w-full justify-center gap-0.5 px-6",
-    book: "my-auto min-w-24 h-32 self-stretch rounded-md bg-blue-500 relative overflow-hidden shadow-lg",
+    book: "my-auto min-w-24 h-32 self-stretch rounded-md bg-blue-500 relative overflow-hidden shadow-lg6c",
 
     mensageContainer:
       "flex w-fit flex-col justify-between rounded-xl bg-yellow-50 gap-2 py-4 pl-4 pr-4 rounded-l-md",
@@ -29,6 +29,7 @@ const BooksText = ({ mensageObj }: { mensageObj: mensageProps }) => {
           quality={100}
           className="pointer-events-none isolate"
           fill
+          sizes="96px"
         />
       </div>
       <article className={mensageContainer()}>

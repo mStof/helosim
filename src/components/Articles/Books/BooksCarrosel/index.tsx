@@ -1,4 +1,3 @@
-/* eslint-disable id-length */
 import Book from "./book";
 import { Dispatch, SetStateAction } from "react";
 import capaInstrumentosMortais from "@/../public/Instrumentos-Mortais.jpg";

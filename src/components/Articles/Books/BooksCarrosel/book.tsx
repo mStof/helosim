@@ -21,6 +21,7 @@ const Book = ({ capa, onClick }: BookProps) => {
           quality={100}
           className="pointer-events-none isolate"
           fill
+          sizes="64px"
         />
       </div>
     </>
