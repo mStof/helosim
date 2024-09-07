@@ -31,7 +31,8 @@ const Footer = () => {
         eu te amo, e nunca vou te deixar, e para você nunca se esquecer disso:{" "}
         <br />
         <span className="font-serif text-7xl font-normal leading-none">
-          Heloisa Depreti Novelli Stofel Brito eu te amo e sempre vou te amar.
+          Heloisa Depreti Novelli Stofel Brito <br />
+          eu te amo e sempre vou te amar.
         </span>
       </p>
       <span className="absolute inset-0 top-full h-px w-full -translate-y-full bg-yellow-50"></span>

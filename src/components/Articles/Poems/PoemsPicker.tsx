@@ -1,19 +1,9 @@
 /* eslint-disable id-length */
-import { log } from "console";
 import { Dispatch, SetStateAction } from "react";
 import { tv, VariantProps } from "tailwind-variants";
 
 const button = tv({
-  base: "relative flex justify-center overflow-hidden p-2 text-base leading-none before:absolute before:top-full before:h-px before:-translate-y-full before:w-full before:bg-yellow-50 before:transition-transform before:duration-200",
-  variants: {
-    active: {
-      false: "text-yellow-50",
-      true: "text-pink-600 before:scale-y-[64]"
-    }
-  },
-  defaultVariants: {
-    active: false
-  }
+  base: "relative flex justify-center overflow-hidden p-2 text-base leading-none text-yellow-50 before:absolute before:top-full before:h-px before:w-full before:-translate-y-full before:bg-yellow-50 before:transition-transform before:duration-200 active:text-pink-600 active:before:scale-y-[64] data-[active=true]:text-pink-600 data-[active=true]:before:scale-y-[64]"
 });
 
 type PoemsPickerprops = VariantProps<typeof button> & {
@@ -185,7 +175,8 @@ const PoemsPicker = ({ setPoems, poemIni }: PoemsPickerprops) => {
           return (
             <button
               key={crypto.randomUUID()}
-              className={button({})}
+              data-active={poem.firstParagraph[0] === poemIni.firstParagraph[0]}
+              className={button()}
               onClick={(e) => handleClick(e, poem)}
             >
               <span className="isolate">Aquele que fiz</span>
