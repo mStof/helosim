@@ -1,5 +1,5 @@
 import Image from "next/image";
-import test from "@/../public/capa.png";
+import test from "@/../public/movie/capa.png";
 import { Dispatch, SetStateAction } from "react";
 
 type MovieCorouselProps = {

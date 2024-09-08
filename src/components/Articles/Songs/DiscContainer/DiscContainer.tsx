@@ -1,46 +1,92 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable id-length */
-import test from "@/../public/capa.png";
-
 import { Dispatch, SetStateAction, useState } from "react";
 import Disc from "./Disc";
+import * as Song from "../songs";
+import { useSongProps } from "../SongContainer";
 
-import enchanted from "../../../../../public/Enchanted.mp3";
+type DiscContainerProps = {
+  setTrackPath: Dispatch<SetStateAction<useSongProps>>;
+};
 
-export const DiscContainer = ({
-  setTrackPath
-}: {
-  setTrackPath: Dispatch<
-    SetStateAction<{
-      path: string;
-      name: string;
-    }>
-  >;
-}) => {
+export const DiscContainer = ({ setTrackPath }: DiscContainerProps) => {
   const arr = [
-    { path: enchanted, name: "Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" },
-    { path: enchanted, name: "1Enchanted" }
+    {
+      cover: Song.covers.cover1,
+      path: Song.songs.Enchanted,
+      name: "Enchanted"
+    },
+    {
+      cover: Song.covers.cover2,
+      path: Song.songs.Afterglow,
+      name: "Afterglow"
+    },
+    {
+      cover: Song.covers.cover3,
+      path: Song.songs.All_To_Well,
+      name: "All To Well"
+    },
+    {
+      cover: Song.covers.cover4,
+      path: Song.songs.Amour_plastique,
+      name: "Amour plastique"
+    },
+    { cover: Song.covers.cover5, path: Song.songs.Daylight, name: "Daylight" },
+    { cover: Song.covers.cover6, path: Song.songs.Espresso, name: "Espresso" },
+    {
+      cover: Song.covers.cover7,
+      path: Song.songs.How_You_Get_The_Girl,
+      name: "How You Get The Girl"
+    },
+    {
+      cover: Song.covers.cover8,
+      path: Song.songs.Long_Live,
+      name: "Long Live"
+    },
+    {
+      cover: Song.covers.cover9,
+      path: Song.songs.Love_Story,
+      name: "Love Story"
+    },
+    {
+      cover: Song.covers.cover10,
+      path: Song.songs.New_Romantics,
+      name: "New Romantics"
+    },
+    {
+      cover: Song.covers.cover11,
+      path: Song.songs.Please_Please_Please,
+      name: "Please Please Please"
+    },
+    {
+      cover: Song.covers.cover12,
+      path: Song.songs.So_High_School,
+      name: "So High School"
+    },
+    {
+      cover: Song.covers.cover13,
+      path: Song.songs.So_Long_London,
+      name: "So Long London"
+    },
+    {
+      cover: Song.covers.cover14,
+      path: Song.songs.Steal_The_Show,
+      name: "Steal The Show"
+    },
+    {
+      cover: Song.covers.cover15,
+      path: Song.songs.Stubborn_Love,
+      name: "Stubborn Love"
+    }
   ];
-  const [active, setActive] = useState<string | undefined>("");
+
+  const [active, setActive] = useState("");
   const handleClick = (
     e: React.PointerEvent<HTMLButtonElement>,
-    song: { path: string; name: string }
+    song: useSongProps
   ) => {
-    setActive(e.currentTarget.parentElement?.id);
-    setTrackPath(song);
+    if (e.currentTarget.parentElement) {
+      setActive(e.currentTarget.parentElement?.id);
+      setTrackPath(song);
+    }
   };
 
   return (
@@ -54,7 +100,7 @@ export const DiscContainer = ({
           <Disc
             key={index}
             id={`id_${index}`}
-            bgCd={test}
+            bgCd={song.cover}
             dataActive={dataActive}
             handleClick={(e) => handleClick(e, song)}
           />

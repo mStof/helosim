@@ -53,6 +53,8 @@
     "multiline-comment-style":"off",
     "react/display-name": "off",
     "no-unused-expressions": "off",
-    "max-lines-per-function": "off"
+    "max-lines-per-function": "off",
+    "id-length":"off"
+
   }
 }

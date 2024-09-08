@@ -6,7 +6,7 @@ import {
   CgPlayTrackPrevO
 } from "react-icons/cg";
 
-type PLayerProps = {
+type PlayerProps = {
   trackOptions: {
     path: string;
     name: string;
@@ -15,22 +15,41 @@ type PLayerProps = {
 
 export const Player = ({
   trackOptions: { name = "Enchanted", path }
-}: PLayerProps) => {
+}: PlayerProps) => {
   const audioElement = useRef<HTMLAudioElement>(null);
+
   const [isPlay, setIsPlay] = useState<boolean | undefined>(false);
   const [currentTime, setCurrentTime] = useState(0);
+
   const handlePause = () => {
     audioElement.current?.pause();
     setIsPlay(!audioElement.current?.paused);
   };
+
   const handlePlay = () => {
     audioElement.current?.play();
     setIsPlay(!audioElement.current?.paused);
   };
+
   const handleTimeUpdate = () => {
     if (audioElement.current) {
       const audio = audioElement.current;
       setCurrentTime((audio.currentTime / audio.duration) * 100);
+    }
+  };
+  const handleStart = () => {
+    if (audioElement.current) {
+      const audio = audioElement.current;
+      audio.currentTime = 0;
+      setCurrentTime(0);
+      handlePlay();
+    }
+  };
+  const handleEnd = () => {
+    if (audioElement.current) {
+      const audio = audioElement.current;
+      audio.currentTime = audio.duration;
+      setCurrentTime(audio.duration);
     }
   };
 
@@ -57,13 +76,13 @@ export const Player = ({
         ></div>
       </span>
       <div className="flex cursor-pointer gap-2 text-3xl text-pink-600">
-        <CgPlayTrackPrevO />
+        <CgPlayTrackPrevO onClick={handleStart} />
         {isPlay ? (
           <CgPlayPauseO onClick={handlePause} />
         ) : (
           <CgPlayButtonO onClick={handlePlay} />
         )}
-        <CgPlayTrackNextO />
+        <CgPlayTrackNextO onClick={handleEnd} />
       </div>
     </div>
   );

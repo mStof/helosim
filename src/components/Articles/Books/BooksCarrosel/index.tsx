@@ -1,53 +1,47 @@
 import Book from "./book";
 import { Dispatch, SetStateAction } from "react";
-import capaInstrumentosMortais from "@/../public/Instrumentos-Mortais.jpg";
-import capaManualDeAssassinato from "@/../public/Manual-de-Assassinato.jpg";
-import capaPecasInfernais from "@/../public/Peças-Infernais.jpg";
-import capaPrincipeCruel from "@/../public/Principe-Cruel.jpg";
-import capaReiDeElfhame from "@/../public/Rei-de-Elfhame.jpg";
-import capaSixOfCrows from "@/../public/SOC.jpg";
+import * as Covers from "../covers";
 import { mensageProps } from "../BooksContainer";
 
 type BooksCarroselProps = {
   setMensage: Dispatch<SetStateAction<mensageProps>>;
 };
-// TODO: Adicionar os livros com suas capas e autores
 const BooksCarrosel = ({ setMensage }: BooksCarroselProps) => {
   const books = [
     {
       mensage:
         "Mais do que tudo, eu te odeio porque penso em você. Com frequência...",
       title: "Principe Cruel",
-      capa: capaPrincipeCruel
+      capa: Covers.capaPrincipeCruel
     },
     {
       mensage: "O coração é uma flecha. Ele precisa de mira para acertar.",
       title: "Six of Crows",
-      capa: capaSixOfCrows
+      capa: Covers.capaSixOfCrows
     },
     {
       mensage:
         "Minha vontade e meu desejo se transformaram pelo amor, o amor que move o sol e todas as outras 'estrelas'",
       title: "Instrumentos Mortais",
-      capa: capaInstrumentosMortais
+      capa: Covers.capaInstrumentosMortais
     },
     {
       mensage:
         "Foram os livros que fizeram com que eu sentisse que não estava completamente sozinho.",
       title: "Peças Infernais",
-      capa: capaPecasInfernais
+      capa: Covers.capaPecasInfernais
     },
     {
       mensage:
         "Mas lembrar nem sempre é algo que fazemos por nós mesmos; às vezes, é para fazer outra pessoa sorrir.",
       title: "Manual de Assassinato para B.G",
-      capa: capaManualDeAssassinato
+      capa: Covers.capaManualDeAssassinato
     },
     {
       mensage:
         "Embora a cama seja pequena, Cardan não se importa quando toma Jude nos braços",
       title: "O Rei de Elfhame",
-      capa: capaReiDeElfhame
+      capa: Covers.capaReiDeElfhame
     }
   ];
   // Saiba que és meu amor mais que perfeito lindo maravilhoso incrivel dinivo, lindeza

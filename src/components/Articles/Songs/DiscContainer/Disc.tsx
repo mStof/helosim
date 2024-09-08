@@ -1,4 +1,4 @@
-import cdImage from "@/../public/CdImage.png";
+import cdImage from "@/../public//music/CdImage.png";
 import Image, { StaticImageData } from "next/image";
 import { tv } from "tailwind-variants";
 

@@ -1,12 +1,7 @@
-/* eslint-disable id-length */
-import { Dispatch, SetStateAction } from "react";
-import { tv, VariantProps } from "tailwind-variants";
+import { Dispatch, SetStateAction, useState } from "react";
+import PoemBtn from "./btn";
 
-const button = tv({
-  base: "relative flex justify-center overflow-hidden p-2 text-base leading-none text-yellow-50 before:absolute before:top-full before:h-px before:w-full before:-translate-y-full before:bg-yellow-50 before:transition-transform before:duration-200 active:text-pink-600 active:before:scale-y-[64] data-[active=true]:text-pink-600 data-[active=true]:before:scale-y-[64]"
-});
-
-type PoemsPickerprops = VariantProps<typeof button> & {
+type PoemsPickerprops = {
   setPoems: Dispatch<
     SetStateAction<{
       firstParagraph: string[];
@@ -24,6 +19,8 @@ type PoemsPickerprops = VariantProps<typeof button> & {
 };
 
 const PoemsPicker = ({ setPoems, poemIni }: PoemsPickerprops) => {
+  const [active, setActive] = useState("");
+
   const poems = [
     {
       firstParagraph: [
@@ -157,12 +154,9 @@ const PoemsPicker = ({ setPoems, poemIni }: PoemsPickerprops) => {
     }
   ];
 
-  const handleClick = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    poem: typeof poemIni
-  ) => {
+  const handleClick = (poem: typeof poemIni) => {
     setPoems(poem);
-    console.log(e);
+    setActive(poem.firstParagraph[0]);
   };
 
   return (
@@ -171,16 +165,17 @@ const PoemsPicker = ({ setPoems, poemIni }: PoemsPickerprops) => {
         Selecione um poema:
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-2 px-8">
-        {poems.map((poem) => {
+        {poems.map((poem, index) => {
+          const btnActive = active === poem.firstParagraph[0];
           return (
-            <button
-              key={crypto.randomUUID()}
-              data-active={poem.firstParagraph[0] === poemIni.firstParagraph[0]}
-              className={button()}
-              onClick={(e) => handleClick(e, poem)}
-            >
-              <span className="isolate">Aquele que fiz</span>
-            </button>
+            <>
+              <PoemBtn
+                key={index}
+                active={btnActive}
+                handleClick={handleClick}
+                poem={poem}
+              />
+            </>
           );
         })}
       </div>
