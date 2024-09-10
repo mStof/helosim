@@ -1,5 +1,5 @@
 import Image from "next/image";
-import test from "@/../public/movie/capa.png";
+import * as Covers from "./covers";
 import { Dispatch, SetStateAction } from "react";
 
 type MovieCorouselProps = {
@@ -13,15 +13,43 @@ type MovieCorouselProps = {
 
 const MovieCarousel = ({ handleClick }: MovieCorouselProps) => {
   const moviesObj = [
-    { src: test, title: "Mamma Mia", mensage: "1" },
-    { src: test, title: "Mamma Mia2", mensage: "2" },
-    { src: test, title: "Mamma Mia3", mensage: "3" },
-    { src: test, title: "Mamma Mia4", mensage: "4" },
-    { src: test, title: "Mamma Mia5", mensage: "5" },
-    { src: test, title: "Mamma Mia6", mensage: "6" }
+    {
+      src: Covers.mammaMia,
+      title: "Mamma Mia",
+      mensage:
+        "Basicamente seu filme preferido, e eu ainda quero muito ver ele com vc (Por mais que eu odeie musicais)"
+    },
+    {
+      src: Covers.aEscolhaPerfeita,
+      title: "A Escolha Perfeita",
+      mensage:
+        "Continuando sua lista de filmes preferidos temos seu xodozinho que eu vou ser obrigado a ver tbm"
+    },
+    {
+      src: Covers.aViagemDeChihiro,
+      title: "A Viagem de Chihiro",
+      mensage:
+        "Eu sei, é um pecado eu não ter visto esse filme ainda, mas a experiência vai ser muito melhor com você"
+    },
+    {
+      src: Covers.questaoDeTempo,
+      title: "Questão de Tempo",
+      mensage:
+        "Eu lembro de ver esse filme qnd nem estavamos namorando ainda, e a cada segundo não pode parar de pensar em como você me encantou a tal ponto"
+    },
+    {
+      src: Covers.HowIMetYourMother,
+      title: "How I Met Your Mother",
+      mensage:
+        "Simplesmente sua sitcon e série favorita, nunca que eu deixaria de fora, gosto pra krl dela e ainda vou te fzr viver o romance dos momentos bom disso aqui"
+    },
+    {
+      src: Covers.Brooklyn99,
+      title: "Brooklyn 99",
+      mensage:
+        "Agora a minha sitcom favorita que conseguiu ficar muito melhor depois de saber que você tbm gosta, como ja dizia peralta 'esse é o nome do nosso vídeo de sexo'"
+    }
   ];
-
-  // Lorem ipsum dolor sit amet muiioti tincidunt et dolore magna aliqu Lorem ipsum dolor
 
   return (
     <div className="mt-16 w-full snap-x overflow-x-auto px-2">

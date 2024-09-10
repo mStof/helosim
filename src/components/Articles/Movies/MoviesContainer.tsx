@@ -1,4 +1,4 @@
-import Header from "@/components/.assets/Header";
+import Header from "@/components/Header";
 import MovieParagraph from "./MovieParagraph";
 import MovieScreen from "./MovieScreen";
 import MovieCarousel from "./MovieCarousel";

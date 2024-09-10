@@ -1,59 +1,55 @@
 import { Fragment } from "react";
+import { poemType } from "./PoemsContainer";
 
 type PoemsTextProps = {
-  poem: {
-    firstParagraph: string[];
-    secondParagraph: string[];
-    thirdParagraph: string[];
-    fourthParagraph: string[];
-  };
+  poem: poemType | null;
 };
 
 const PoemsText = ({ poem }: PoemsTextProps) => {
-  const { firstParagraph, secondParagraph, thirdParagraph, fourthParagraph } =
-    poem;
   return (
-    <div className="mt-16 px-8 font-normal">
-      <p className="font-slab text-base leading-normal text-yellow-50">
-        {firstParagraph.map((line) => {
-          return (
-            <Fragment key={crypto.randomUUID()}>
-              {line} <br />
-            </Fragment>
-          );
-        })}
-      </p>
-      <br />
-      <p className="font-slab text-base leading-normal text-yellow-50">
-        {secondParagraph.map((line) => {
-          return (
-            <Fragment key={crypto.randomUUID()}>
-              {line} <br />
-            </Fragment>
-          );
-        })}
-      </p>
-      <br />
-      <p className="font-slab text-base leading-normal text-yellow-50">
-        {thirdParagraph.map((line) => {
-          return (
-            <Fragment key={crypto.randomUUID()}>
-              {line} <br />
-            </Fragment>
-          );
-        })}
-      </p>
-      <br />
-      <p className="font-slab text-base leading-normal text-yellow-50">
-        {fourthParagraph.map((line) => {
-          return (
-            <Fragment key={crypto.randomUUID()}>
-              {line} <br />
-            </Fragment>
-          );
-        })}
-      </p>
-    </div>
+    poem && (
+      <div className="mt-16 px-8 font-normal">
+        <p className="font-slab text-base leading-normal text-yellow-50">
+          {poem.poem.firstParagraph.map((line) => {
+            return (
+              <Fragment key={crypto.randomUUID()}>
+                {line} <br />
+              </Fragment>
+            );
+          })}
+        </p>
+        <br />
+        <p className="font-slab text-base leading-normal text-yellow-50">
+          {poem.poem.secondParagraph.map((line) => {
+            return (
+              <Fragment key={crypto.randomUUID()}>
+                {line} <br />
+              </Fragment>
+            );
+          })}
+        </p>
+        <br />
+        <p className="font-slab text-base leading-normal text-yellow-50">
+          {poem.poem.thirdParagraph.map((line) => {
+            return (
+              <Fragment key={crypto.randomUUID()}>
+                {line} <br />
+              </Fragment>
+            );
+          })}
+        </p>
+        <br />
+        <p className="font-slab text-base leading-normal text-yellow-50">
+          {poem.poem.fourthParagraph.map((line) => {
+            return (
+              <Fragment key={crypto.randomUUID()}>
+                {line} <br />
+              </Fragment>
+            );
+          })}
+        </p>
+      </div>
+    )
   );
 };
 
